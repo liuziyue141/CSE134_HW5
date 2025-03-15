@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta property="og:title" content="My Awesome Blog Post Title">
+        <meta property="og:description" content="A captivating summary of the blog post content.">
+        <meta property="og:image" content="/X.avif">
+        <meta property="og:url" content="https://yourwebsite.com/blog-post">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@YourTwitterHandle">
+        <meta name="twitter:creator" content="@ZiyueLiu">
+        <meta name="twitter:title" content="Ziyue Liu's Portfolio - UCSD Computer Engineering Student">
+        <meta name="twitter:description" content="Portfolio showcasing software engineering projects including Ray Tracer, Codename game, and BERT-based Intent Classification research. Expertise in Python, Java, and full-stack development.">
+        <meta name="twitter:image" content="https://yourwebsite.com/profile-image.jpg">
+        <meta name="twitter:image:alt" content="Ziyue Liu's Portfolio Screenshot">
+        <link rel="stylesheet" href="styles.css">
+        <style> 
+            main > section {
+                background: #222;
+                padding: 20px;
+                border-radius: 20px;
+                margin-top: 30px;
+            }
+            :root {
+                --primary-color: #0984e3;
+                --secondary-color: #5cace3;
+                --bg-dark: #111;
+                --bg-medium: #222;
+                --bg-light: #333;
+                --text-primary: #fff;
+                --text-secondary: #bcbcbc;
+                --font-body: 'Asap', system-ui, -apple-system, sans-serif;
+                --font-heading: var(--font-body);
+                --base-size: 1rem;
+                --scale: 1.25;
+                --transition: all 0.3s ease;
+                --error-color: #e74c3c;
+                --warning-color: #f39c12;
+                --success-color: #2ecc71;
+            }
+
+            body {
+                font-family: var(--font-body);
+                background-color: var(--bg-dark);
+                color: var(--text-primary);
+                line-height: 1.6;
+                padding: 2rem;
+            }
+
+            .contact-section {
+                background: var(--bg-medium);
+                padding: 2rem;
+                border-radius: 1rem;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .section-heading {
+                color: var(--primary-color);
+                position: relative;
+                padding-left: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-heading::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -0.5rem;
+                width: 3rem;
+                height: 3px;
+                background: currentColor;
+            }
+
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                position: relative;
+            }
+
+            label {
+                font-weight: bold;
+            }
+
+            .required::after {
+                content: " *";
+                color: var(--error-color);
+            }
+
+            input, textarea {
+                padding: 0.75rem;
+                background-color: var(--bg-light);
+                border: 2px solid transparent;
+                border-radius: 0.5rem;
+                color: var(--text-primary);
+                font-family: var(--font-body);
+                font-size: var(--base-size);
+                transition: var(--transition);
+            }
+
+            input:focus, textarea:focus {
+                outline: none;
+                border-color: var(--primary-color);
+            }
+
+            textarea {
+                min-height: 100px;
+                resize: vertical;
+            }
+
+            .char-counter {
+                margin-top: 0.25rem;
+                text-align: right;
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+                transition: var(--transition);
+            }
+
+            .char-counter.warning {
+                color: var(--warning-color);
+            }
+
+            .char-counter.danger {
+                color: var(--error-color);
+            }
+
+            .error-highlight {
+                animation: flash 0.5s ease;
+            }
+
+            @keyframes flash {
+                0%, 100% { 
+                    border-color: transparent; 
+                }
+                50% { 
+                    border-color: var(--error-color); 
+                    background-color: rgba(231, 76, 60, 0.2);
+                }
+            }
+
+
+
+        </style>
+        <title>Ziyue Liu's Personal Site</title>
+    </head>
+    <body>
+        <nav class="main-nav">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="#About-Me" class="nav-link">About Me</a></li>
+              <li class="nav-item"><a href="#Education" class="nav-link">Education</a></li>
+              <li class="nav-item"><a href="#Technical-Skill" class="nav-link">Technical Skill</a></li>
+              <li class="nav-item"><a href="#Project" class="nav-link">Project</a></li>
+              <li class="nav-item"><a href="#Score-and-Award" class="nav-link">Score and Award</a></li>
+              <li class="nav-item"><a href="#Feedback" class="nav-link">Feedback</a></li> 
+              <li class="nav-item"><a href="#Contact-Me" class="nav-link">Contact Me</a></li> 
+            </ul>
+        </nav>
+        
+        <main class="content-wrapper">
+            <h1 id="welcome-message" class="page-title">Welcome to Tim's portfolio site</h1>
+            
+            <section class="quote-section">
+                <h2 class="section-heading">Favorite Quotes</h2>
+                <div class="quote-grid">
+                    <blockquote class="quote-card math-quote">
+                        <cite class="quote-content">
+                            <math>
+                                <mi>E</mi>
+                                <mo>=</mo>
+                                <mi>m</mi>
+                                <mi>c</mi>
+                                <msup>
+                                    <mn>2</mn>
+                                </msup>
+                            </math>
+                        </cite>
+                    </blockquote>
+                    <blockquote class="quote-card text-quote">
+                        <p class="quote-content">People work better when they know what the goal is and why.</p>
+                    </blockquote>
+                </div>
+                <div class="portfolio-intro">
+                    <p>Welcome to my portfolio! I'm passionate about solving complex technical challenges and creating impactful solutions. With a strong foundation in software engineering and a track record of successful projects, I invite you to explore my work and experience. Whether you're looking for a dedicated team member or seeking to discuss potential opportunities, I'm excited to connect with you.</p>
+                    <aside class="callout">
+                        <p>Let's explore how my skills and experience can bring value to your organization.</p>
+                    </aside>
+                    <p>Each piece of work represents my commitment to excellence and continuous growth in the ever-evolving tech landscape.</p>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <section id="About-Me" class="content-section profile-section">
+                <h2 class="section-heading">About Me</h2>
+                <div class="profile-content">
+                    <picture class="profile-picture">
+                        <source srcset="big-profile-picture.jpg" media="(min-width: 600px)">
+                        <img src="small-profile-picture.jpg" alt="Ziyue Liu profile picture">
+                    </picture>
+                    <div class="profile-text">
+                        <p>Ziyue Liu is a UCSD student studying <strong class="highlight">computer engineering</strong>. I have experience in various fields - <em class="emphasis">web development, systems engineering, and machine learning</em>. Previously as a Software Engineer at Qualcomm Institute, Tim works on developed a <strong class="highlight">Python Flask</strong> platform for the smart learning, a AI tutor platform used by many classes in UCSD. With a focus on security, Tim have implemented token-based authentication, enhancing user experience through seamless integration with Google OAuth and JWT. Tim's ambition is to further harness innovative software to address complex challenges, all while contributing to a transformative learning environment at UCSD.</p>
+                    </div>
+                </div>
+
+                <figure class="audio-player">
+                    <figcaption class="audio-caption">Listen to my <del class="deleted">self introduction</del> <ins class="inserted">bot introduction</ins></figcaption>
+                    <audio controls src="profile-audio.mp3" class="audio-element"></audio>
+                    <a href="profile-audio.mp3" class="download-link"> Download audio </a>
+                </figure>
+            </section>
+
+            <hr>
+            <section id = "Education">
+                <h2>Education</h2>
+                <img class = "headerImg" id = "ucsd-id" src="ucsd.svg" alt= "ucsd icon" width = 100px height = 100px>
+                <hgroup>
+                    <h3>University of California, San Diego</h3>
+                    <p>2022-2026</p>
+                </hgroup>
+
+                <p>major: Computer Engineering</p>
+                <details>
+                    <summary>Relevant Courses</summary>
+                    <ol>
+                        <li>Data Structure & Algorithm</li>
+                        <li>Database</li>
+                        <li>Computer Network</li>
+                        <li>Operating System</li>
+                        <li>Distributed System</li>
+                        <li>Object Oriented Programming</li>
+                        <li>Software Engineering</li>
+                        <li>Computer Security</li>
+                        <li>Deep Learning</li>
+                        <li>Computer Architecture</li>
+                    </ol>
+                </details>
+            </section>
+            <hr>
+            <section id = "Technical-Skill">
+                <h2>Technical Skill</h2>
+                <img class = "headerImg" src = "/toolkit.png" alt= "tool kit image" width = 300px height = 100px></img>
+                <search>
+                    <label for="skill-search">Search for skills:</label>
+                    <input type="search" 
+                            id="skill-search" 
+                            placeholder="Type to search skills..."
+                            list="all-skills"> 
+                    <datalist id="all-skills">
+                        <!-- Programming Languages -->
+                        <option value="Python">
+                        <option value="Java">
+                        <option value="SQL">
+                        <option value="C++">
+                        <option value="Go">
+                        <option value="JavaScript">
+                        <option value="TypeScript">
+                        <option value="HTML">
+                        <option value="CSS">
+                        <option value="Bash">
+            
+                        <!-- Frameworks -->
+                        <option value="Spring">
+                        <option value="Flask">
+                        <option value="REST API">
+                        <option value="JWT">
+                        <option value="OAuth">
+                        <option value="PyTorch">
+                        <option value="React">
+                        <option value="MERN Stack">
+                        <option value="Node.js">
+            
+                        <!-- Database Technologies -->
+                        <option value="SQLAlchemy">
+                        <option value="MongoDB">
+                        <option value="MySQL">
+                        <option value="PostgreSQL">
+                        <option value="Oracle">
+                        <option value="Redis">
+                    </datalist>
+                </search>
+           
+                
+                  <dl>
+                    <dt><h3>Programming Language</h3></dt>
+                    <dd>Python, Java, SQL, C++, Go, JavaScript, TypeScript, HTML, CSS, Bash</dd>
+                  
+                    <dt><h3>Framework</h3></dt>
+                    <dd>Spring, Flask, Rest API, JWT, OAuth, pytorch, React, MERN, Node.JS</dd>
+                  
+                    <dt><h3>Database Technology</h3></dt>
+                    <dd>SQLAlchemy, MongoDB, MySQL, PostgreSQL, Oracle, Redis</dd>
+                  </dl>
+                  
+                <!-- <div>
+                    <h3>Programming Language</h3>
+                    <p></p>
+                </div>
+                <div>
+                    <h3>Framework</h3>
+                </div>
+                <div>
+                    <h3></h3>
+                </div> -->
+                
+            </section>
+
+            <hr>
+
+            <section id="Project">
+                <h2>Project</h2>
+                <div class="project-grid">
+                  <div class="project-container">
+                    <img src="ray_tracer.png" 
+                            class="project-img"
+                            alt="3D rendered scene showing light reflection and shadow effects">              
+                    <div class="project-content">
+                      <h3>Ray Tracer Project</h3>
+                      <p>Developed a comprehensive raytracer from scratch in C++, implementing core rendering features including shadow computation, reflection handling, and geometric primitive intersection calculations. Optimized performance through acceleration structures, resulting in efficient high-quality image rendering with accurate lighting and materials.</p>
+                      <a href="https://github.com/liuziyue141/RayTracerProject">View Project</a>
+                    </div>
+                  </div>
+              
+                  <!-- Codename Project -->
+                  <div class="project-container">
+                    <img src="codename.avif" 
+                        class="project-img"
+                        alt="Screenshot of Codename game interface showing word grid"
+                        loading="lazy">
+                    <video width="500" height="400" controls>
+                        <source src="codename.mov" type="video/mp4" class="project-img">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="project-content">
+                      <h3>Codename</h3>
+                      <p><dfn>Codenames</dfn> is a strategic word-guessing party game is a strategic word-guessing party game where teams compete to identify their agents through clues provided by their "spymaster." Architected the frontend using React to create an intuitive user interface featuring dynamic word grids, team management, and real-time game state updates. Built a robust Node.js backend with MongoDB for efficient storage of game states, user profiles, and match histories, while implementing RESTful APIs for seamless client-server communication. Integrated Socket.IO to enable real-time gameplay features including live updates of word selections, team score tracking, and instant relay of spymaster clues across all connected players. Successfully deployed the application on Heroku with continuous integration, making the game accessible to users worldwide while maintaining smooth performance and reliable data synchronization.</p>
+                      <a href="https://github.com/liuziyue141/codename">View Project</a>
+                    </div>
+                  </div>
+              
+                </div>
+                <div class = "project-container">
+                    <h3>Intent Classification Using BERT and Contrastive Learning</h3>
+                    <my-project-photo>
+                        <a href="/CSE_151B___PA4___Report.pdf"><img src="pa4.ppm" width="500" height="500" class = "project-img" alt="Contrastive learning"></a>
+                    </my-project-photo>
+                    <p>Led an extensive natural language processing project analyzing <i>Amazon's massive intent dataset</i> using <abbr>BERT</abbr> (Bidirectional Encoder Representations from Transformers) and advanced contrastive learning approaches <span>(SupCon and SimCLR)</span>. Through systematic experimentation with hyperparameters including dropout rates, batch sizes, and learning rate schedules, I achieved significant performance improvements. The optimized BERT model, enhanced with Layer-Wise Learning Rate Decay (LLRD) and Warm Steps, achieved an impressive 88% accuracy on intent classification. While exploring contrastive learning techniques for better text embedding in high-dimensional feature spaces, I discovered that traditional fine-tuning approaches outperformed these newer methods for this specific use case.</p>
+
+                </div>
+              </section>
+            <hr>
+            <section id = "Score-and-Award">
+                <h2>
+                    Score and Award
+                </h2>
+                <table>
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">score</th>
+                      </tr>
+                    </thead>
+                    <colgroup>
+                        <col />
+                        <col span="1" class="competition" />
+                        <col span="1" class="score" />
+                      </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">International Mathematic Modelling Competition</th>
+                        <td>Finalist (top 50 out of 5000 teams)</td>                      
+                    </tr>
+                      <tr>
+                        <th scope="row">TechX Hackathon</th>
+                        <td>3rd place out of 100 teams</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">UK Chemistry Olympiad</th>
+                        <td>Gold</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">AP Computer Science</th>
+                        <td>5</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </section>
+
+            <section id = "Feedback">
+                <h2>Feedback</h2>
+                <form action="/submit_form" method="GET">
+                    <label for="interest-select">which section you found most interesting:</label>
+                    <select name="interest-select"  id="interest-select">
+                        <option value="">--Please choose an option--</option>
+                        <option value="Education">Education</option>
+                        <option value="Project">Project</option>
+                        <option value="Score and Award">Score and Award</option>
+                    </select>
+                    <br>
+                    <label for="skill-selects[]">which skills are relevant to your company?</label>
+                        <select name="skill-selects[]" id="skill-selects[]" multiple required>
+                        <optgroup label="Database">
+                            <option>MangoDB</option>
+                            <option>Posgres</option>
+                        </optgroup>
+                        <optgroup label="Framework">
+                            <option>Spring</option>
+                            <option>Flask</option>
+                        </optgroup>
+                        <optgroup label="Programming Language">
+                            <option>Java</option>
+                            <option>Python</option>
+                        </optgroup>
+                        </select>
+                        <br>
+                        <label for="skill-input">Which skill is most relevant to your company?</label>
+                            <input type="text" id="skill-input" name="skills" list="skill-options">
+                            <datalist id="skill-options">
+                                <option value="MongoDB">
+                                <option value="PostgreSQL">
+                                <option value="Spring">
+                                <option value="Flask">
+                                <option value="Java">
+                                <option value="Python">
+                            </datalist>
+                        <br>
+                        <my-fieldset>
+                            <fieldset>
+                                <legend>Choose your favorite project</legend>
+                            
+                                <input type="radio" id="Ray Tracer" name="favorite_project" value="K" />
+                                <label for="Ray Tracer">Ray Tracer</label><br />
+                            
+                                <input type="radio" id="Fun Fact 2" name="favorite_project" value="S" />
+                                <label for="Fun Fact 2">Codename</label><br />
+                            
+                                <input type="radio" id="Fun fact 3" name="favorite_project" value="M" />
+                                <label for="Fun fact 3">Intent Classification</label>
+                            </fieldset>
+                        </my-fieldset>
+                        <br>
+
+                        <label for="site_improvement">Give some suggestion to improve my site:</label>
+
+                        <textarea id="site_improvement" name="site_improvement" rows="5" cols="33"></textarea> 
+                        <button type="submit">Submit Feedback</button>
+                        <p>Please press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> to reset the feedback form.</p>
+                </form>
+                
+            </section>
+
+            <!-- <section id = "Contact Me">
+                <h2>Contact Me!</h2>
+                <details>
+                    <summary><b>Contact Me</b></summary>
+                    <p>Name: Ziyue Liu</p>
+                    <p>Address: <address>Lombard Pl 8800, San Diego, California</address></p>
+                    <p>Email: zil085@ucsd.edu</p>
+                    <p>mobile: 858-666-5794</p>
+                  
+                </details>
+            </section> -->
+            <section id="Contact-Me">
+                <h2>Contact Me!</h2>
+                <button onclick="document.getElementById('contact-dialog').showModal()">
+                    Open Contact Information
+                </button>
+                <my-dialog>
+                    <dialog id="contact-dialog">
+                        <h3>Contact Information</h3>
+                        <p>Name: Ziyue Liu</p>
+                        <address>Lombard Pl 8800, San Diego, California</address>
+                        <p>Email: zil085@ucsd.edu</p>
+                        <p>mobile: 858-666-5794</p>
+                        <form method="dialog">
+                            <button>Close</button>
+                        </form>
+                    </dialog>
+                </my-dialog>
+            </section>
+
+            <section id="Contact-Form" class="contact-section">
+                <h2 class="section-heading">Contact Form</h2>
+                <form id="contactForm" action="https://httpbin.org/post" method="post" class="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="required">Name</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comments">Comments</label>
+                        <textarea id="comments" name="comments"></textarea>
+                    </div>
+                    
+                    <input type="hidden" name="possible_bot" value="true">
+                    
+                    <button type="submit">Submit</button>
+                    
+                    <div class="outputs-container">
+                        <output id="errorOutput" aria-live="assertive"></output>
+                        <output id="infoOutput" aria-live="polite"></output>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 Ziyue Liu</p>
+        </footer>
+        <script>
+               
+               var c = document.getElementById("welcomeCanvas");
+                var ctx = c.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(70, 50, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+
+                class HelloWorld extends HTMLElement {
+                    constructor() {
+                        super();
+                        // When element is created, log to console
+                        console.log("Hello World!");
+                    }
+                }
+
+                // Register the custom element
+                customElements.define('hello-world', HelloWorld);
+
+        </script>
+        <noscript>
+            <!-- anchor linking to external file -->
+            <a href="https://www.mozilla.org/">External Link</a>
+        </noscript>
+        <script>
+            const form = document.getElementById('contactForm');
+            const errorOutput = document.getElementById('errorOutput');
+            const infoOutput = document.getElementById('infoOutput');
+    
+            form.addEventListener('submit', function(event) {
+                // Clear previous messages
+                errorOutput.textContent = '';
+                infoOutput.textContent = '';
+                
+                // Validate form
+                let valid = true;
+                
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                
+                if (!name.value.trim()) {
+                    errorOutput.textContent = 'Name is required';
+                    valid = false;
+                }
+                
+                if (!email.value.trim()) {
+                    errorOutput.textContent = errorOutput.textContent 
+                        ? errorOutput.textContent + ' and Email is required' 
+                        : 'Email is required';
+                    valid = false;
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                    errorOutput.textContent = 'Please enter a valid email address';
+                    valid = false;
+                }
+                
+                if (valid) {
+                    infoOutput.textContent = 'Form submitted successfully!';
+                    // We're allowing the form to submit naturally to httpbin.org
+                } else {
+                    event.preventDefault();
+                }
+            });
+        </script>
+    
+    </body>
+</html>

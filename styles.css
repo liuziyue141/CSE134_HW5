@@ -1,0 +1,285 @@
+/* CSS Variables with fallbacks */
+:root {
+    --primary-color: #0984e3;
+    --secondary-color: color-mix(in srgb, var(--primary-color) 70%, #fff);
+    --bg-dark: #111;
+    --bg-medium: #222;
+    --bg-light: #333;
+    --text-primary: #fff;
+    --text-secondary: #bcbcbc;
+    --font-body: 'Asap', system-ui, -apple-system, sans-serif;
+    --font-heading: var(--font-body);
+    --base-size: 1rem;
+    --scale: 1.25;
+    --max-width: 1400px;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Base Styles */
+  @layer base {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+  
+    html {
+      scroll-behavior: smooth;
+      font-size: 100%;
+      color-scheme: dark;
+    }
+  
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-dark, #111);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      min-height: 100dvh;
+      line-height: 1.6;
+    }
+  
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      line-height: 1.1;
+      margin-bottom: 1em;
+    }
+  
+    h1 { font-size: calc(var(--base-size) * var(--scale) * 2); }
+    h2 { font-size: calc(var(--base-size) * var(--scale) * 1.5); }
+    h3 { font-size: calc(var(--base-size) * var(--scale)); }
+  }
+  
+  /* Component Styles */
+  @layer components {
+    .main-nav {
+      width: clamp(200px, 20dvw, 300px);
+      height: 100dvh;
+      position: fixed;
+      background: var(--bg-medium);
+      display: grid;
+      place-items: center;
+      transition: var(--transition);
+  
+      .nav-list {
+        width: 100%;
+        padding: 2rem;
+      }
+  
+      .nav-link {
+        display: block;
+        padding: 1em 1.5em;
+        color: var(--text-primary);
+        text-decoration: none;
+        border-left: 3px solid transparent;
+        transition: var(--transition);
+  
+        &:hover, &:focus-visible {
+          background: var(--bg-light);
+          border-left-color: var(--primary-color);
+          transform: translateX(0.5rem);
+        }
+      }
+    }
+  
+    .content-wrapper {
+      margin-left: clamp(200px, 20dvw, 300px);
+      padding: 2rem;
+      width: calc(100dvw - clamp(200px, 20dvw, 300px));
+      flex: 1;
+    }
+
+    .profile-picture{
+        display: block;
+        width: 30%;  /* Control picture container size */
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    img {
+        width: 100%;  /* Make image fill its container */
+        height: auto;  /* Maintain aspect ratio */
+        max-width: 100%;  /* Prevent overflow */
+      }
+      
+  
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: 2rem;
+      margin-block: 2rem;
+  
+      .quote-card {
+        background: var(--bg-medium);
+        padding: 2rem;
+        border-radius: 1rem;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+  
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border: 2px solid var(--primary-color);
+          border-radius: inherit;
+          opacity: 0;
+          transition: var(--transition);
+        }
+  
+        &:hover {
+          transform: translateY(-0.5rem);
+  
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  
+    .project-container {
+      --project-spacing: 2rem;
+      background: var(--bg-medium);
+      padding: var(--project-spacing);
+      border-radius: 1rem;
+      margin-block: var(--project-spacing);
+      display: grid;
+      gap: var(--project-spacing);
+      transition: var(--transition);
+  
+      &:has(.project-img:hover) {
+        background: color-mix(in srgb, var(--bg-medium) 90%, var(--primary-color));
+        transform: scale(1.02);
+      }
+  
+      .project-img {
+        width: min(100%, 500px);
+        height: auto;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        transition: var(--transition);
+  
+        &:hover {
+          transform: rotateZ(2deg) scale(1.05);
+          box-shadow: 0 0 2rem color-mix(in srgb, var(--primary-color) 30%, transparent);
+        }
+      }
+    }
+  
+    .audio-player {
+      display: grid;
+      gap: 1rem;
+      margin-block: 2rem;
+  
+      .audio-element {
+        width: 100%;
+        filter: drop-shadow(0 0 1rem var(--primary-color));
+      }
+    }
+  
+  
+    @container (min-width: 400px) {
+        .project-container {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: 1fr 2fr;
+        
+        picture {
+            aspect-ratio: 3/4;
+        }
+        }
+    }
+
+    .headerImg {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+    
+  }
+  
+  /* Utility Styles */
+  @layer utilities {
+    .section-heading {
+      color: var(--primary-color);
+      position: relative;
+      padding-left: 1rem;
+  
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.5rem;
+        width: 3rem;
+        height: 3px;
+        background: currentColor;
+      }
+    }
+  
+    .callout {
+      background: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--primary-color) 20%, transparent),
+        color-mix(in srgb, var(--primary-color) 5%, transparent)
+      );
+      padding: 1.5rem;
+      border-left: 3px solid var(--primary-color);
+      margin-block: 1.5rem;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    main > section {
+      animation: fade-in 0.5s ease backwards;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .main-nav {
+      width: 100dvw;
+      height: auto;
+      position: static;
+      
+      .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem !important;
+      }
+    }
+  
+    .content-wrapper {
+      margin-left: 0;
+      width: 100dvw;
+      padding: 1rem;
+    }
+  
+    .project-container {
+      padding: 1rem;
+      
+      .project-img:hover {
+        transform: none;
+      }
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    .main-nav, .audio-player, .project-container video {
+      display: none;
+    }
+  
+    .content-wrapper {
+      margin: 0;
+      width: 100%;
+    }
+  }
