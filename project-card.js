@@ -161,8 +161,6 @@ class ProjectCard extends HTMLElement {
     projectsContainer.innerHTML = '<p>Loading projects...</p>';
     
     try {
-      // Fetch projects from JSONBin or My JSON Server
-      // Replace with your actual endpoint
       const response = await fetch('https://my-json-server.typicode.com/liuziyue141/CSE134_HW5/projects');
       
       if (!response.ok) {
@@ -172,7 +170,6 @@ class ProjectCard extends HTMLElement {
       const remoteProjects = await response.json();
       
       if (remoteProjects && remoteProjects.length > 0) {
-        // Save to localStorage for future use
         localStorage.setItem('projects', JSON.stringify(remoteProjects));
         renderProjects(remoteProjects);
       } else {
@@ -202,9 +199,7 @@ class ProjectCard extends HTMLElement {
     projectsContainer.innerHTML = '';
   }
   
-  // Initialize the page
   document.addEventListener('DOMContentLoaded', () => {
-    // Set up event listeners for buttons
     document.getElementById('load-local-btn').addEventListener('click', loadLocalProjects);
     document.getElementById('load-remote-btn').addEventListener('click', loadRemoteProjects);
     
