@@ -1,12 +1,9 @@
-// Define the ProjectCard custom element
 class ProjectCard extends HTMLElement {
     constructor() {
       super();
-      // Create a shadow DOM for encapsulation
       this.attachShadow({ mode: 'open' });
     }
   
-    // Called when the element is added to the DOM
     connectedCallback() {
       this.render();
     }
@@ -17,14 +14,11 @@ class ProjectCard extends HTMLElement {
       this.render();
     }
   
-    // Render the card content
     render() {
       if (!this._project) return;
   
-      // Get data from project object
       const { title, imageUrl, altText, description, link } = this._project;
   
-      // Create the card HTML content
       this.shadowRoot.innerHTML = `
         <style>
           :host {
@@ -131,16 +125,13 @@ class ProjectCard extends HTMLElement {
     }
   }
   
-  // Register the custom element
   customElements.define('project-card', ProjectCard);
   
-  // Function to load projects from localStorage
   function loadLocalProjects() {
     clearProjects();
     const projectsContainer = document.getElementById('projects-container');
     
     try {
-      // Attempt to get projects from localStorage
       const localProjects = JSON.parse(localStorage.getItem('projects'));
       
       if (localProjects && localProjects.length > 0) {
