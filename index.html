@@ -457,8 +457,62 @@
             </section>
 
             <hr>
-
+            <!-- Add this section where you want the project cards to appear -->
             <section id="Project">
+                <h2>Project</h2>
+                
+                <!-- Project loading buttons -->
+                <div class="project-controls">
+                <button id="load-local-btn" class="load-button">Load Local</button>
+                <button id="load-remote-btn" class="load-button">Load Remote</button>
+                </div>
+                
+                <!-- Container for project cards -->
+                <div id="projects-container" class="projects-grid">
+                <!-- Project cards will be dynamically added here -->
+                </div>
+            </section>
+            
+            <!-- Add this to your CSS -->
+            <style>
+                .project-controls {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                }
+                
+                .load-button {
+                padding: 0.75rem 1.5rem;
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                font-weight: bold;
+                transition: all 0.3s ease;
+                }
+                
+                .load-button:hover {
+                background-color: var(--secondary-color);
+                transform: translateY(-2px);
+                }
+                
+                .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
+                }
+                
+                @media (max-width: 768px) {
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                }
+                }
+            </style>
+            
+            <!-- Add this script tag at the end of your body -->
+            <script src="project-card.js"></script>
+            <!-- <section id="Project">
                 <h2>Project</h2>
                 <div class="project-grid">
                   <div class="project-container">
@@ -472,7 +526,6 @@
                     </div>
                   </div>
               
-                  <!-- Codename Project -->
                   <div class="project-container">
                     <img src="codename.avif" 
                         class="project-img"
@@ -498,7 +551,7 @@
                     <p>Led an extensive natural language processing project analyzing <i>Amazon's massive intent dataset</i> using <abbr>BERT</abbr> (Bidirectional Encoder Representations from Transformers) and advanced contrastive learning approaches <span>(SupCon and SimCLR)</span>. Through systematic experimentation with hyperparameters including dropout rates, batch sizes, and learning rate schedules, I achieved significant performance improvements. The optimized BERT model, enhanced with Layer-Wise Learning Rate Decay (LLRD) and Warm Steps, achieved an impressive 88% accuracy on intent classification. While exploring contrastive learning techniques for better text embedding in high-dimensional feature spaces, I discovered that traditional fine-tuning approaches outperformed these newer methods for this specific use case.</p>
 
                 </div>
-              </section>
+              </section> -->
             <hr>
             <section id = "Score-and-Award">
                 <h2>
