@@ -20,20 +20,6 @@
         "altText": "Contrastive learning diagram",
         "description": "Led an NLP project analyzing Amazon's intent dataset using BERT and advanced contrastive learning approaches, achieving 88% accuracy on intent classification.",
         "link": "/CSE_151B___PA4___Report.pdf"
-      },
-      {
-        "title": "Portfolio Website",
-        "imageUrl": "/api/placeholder/400/300",
-        "altText": "Screenshot of portfolio website",
-        "description": "Created a responsive portfolio website using HTML, CSS, and JavaScript. Implemented custom elements and dynamic content loading from local and remote sources.",
-        "link": "#"
-      },
-      {
-        "title": "Smart Learning Platform",
-        "imageUrl": "/api/placeholder/400/300",
-        "altText": "Screenshot of AI tutor platform interface",
-        "description": "Developed a Python Flask platform for smart learning, an AI tutor platform used by many classes at UCSD. Implemented token-based authentication with Google OAuth and JWT.",
-        "link": "#"
       }
     ]
   }

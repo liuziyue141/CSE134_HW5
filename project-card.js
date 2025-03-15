@@ -163,7 +163,7 @@ class ProjectCard extends HTMLElement {
     try {
       // Fetch projects from JSONBin or My JSON Server
       // Replace with your actual endpoint
-      const response = await fetch('https://my-json-server.typicode.com/yourusername/your-repo/projects');
+      const response = await fetch('https://my-json-server.typicode.com/liuziyue141/CSE134_HW5/projects');
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
